@@ -10,8 +10,10 @@ user_service = UserService()
 @bp.route('/', methods=['POST'])
 def create_user():
     try:
+        user_data = request.get_json()
+        # print('----user---data----', user_data)
         # Validate request data using Pydantic
-        user_data = User(**request.get_json())
+        # user_data = User(**request.get_json()) #pydantic validation
         # Create user using validated data
         user = user_service.create_user(user_data)
         return jsonify(user.model_dump()), 201

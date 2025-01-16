@@ -5,9 +5,9 @@ from typing import List, Optional
 
 class DBHandler:
     @staticmethod
-    def create_user(user_data: any) -> UserDB:
+    def create_user(user_data: any) -> any:
         """Create a new user"""
-        user = UserDB(username=user_data.username, email=user_data.email)
+        user = UserDB(**user_data)
         db.session.add(user)
         try:
             db.session.commit()
