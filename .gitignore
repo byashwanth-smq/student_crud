@@ -1,0 +1,11 @@
+__pycache__
+migration/__pycache__
+venv
+.env
+.coverage
+.env.*
+.flaskenv
+.vector_search.db
+migrations/script.py.mako
+tests/integration/__pycache__
+tests/unit/__pycache__
