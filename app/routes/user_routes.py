@@ -11,10 +11,6 @@ user_service = UserService()
 def create_user():
     try:
         user_data = request.get_json()
-        # print('----user---data----', user_data)
-        # Validate request data using Pydantic
-        # user_data = User(**request.get_json()) #pydantic validation
-        # Create user using validated data
         user = user_service.create_user(user_data)
         return jsonify(user.model_dump()), 201
     except ValidationError as e:

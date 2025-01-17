@@ -20,6 +20,15 @@ class UserDB(db.Model):
 
     def __repr__(self) -> str:
         return f'<User {self.username}>'
+    
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'created_at': str(self.created_at),
+            'updated_at': str(self.updated_at),
+        }
 
 # Pydantic Models
 class User(BaseModel):
